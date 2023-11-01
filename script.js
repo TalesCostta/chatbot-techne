@@ -9,7 +9,7 @@ if (acessChat != null) {
 var paramChat;
 paramChat = localStorage.getItem('chatbot-info-student')
 let cronchatToken = 'AAGu0cX1U7HIuyWyB6aA1HhpD4l0c0psnTw';
-let hostURL = 'https://app-29-191-49296.ide.cronapp.io/get-chat?token=';
+let hostURL = 'https://cronchatlyceumsite.cronapp.io/get-chat?token=';
 let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChat}`;
 let scriptHTML = document.createElement("script");
 scriptHTML.src = chatbotURL;
