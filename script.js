@@ -27,6 +27,7 @@ window.onload = function () {
 function clickBtnChat(){
     var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
     document.getElementById(btnConversationId).click();
+    dataLayer.push({'event': 'bot_conversation_started'});
 }
 dataLayer = [{
     'event': 'bot_conversation_started'
