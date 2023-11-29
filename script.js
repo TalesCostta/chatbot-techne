@@ -28,4 +28,4 @@ function clickBtnChat(){
     var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
     document.getElementById(btnConversationId).click();
 }
-window.dataLayer = window.dataLayer || [];
+dataLayer = [];
