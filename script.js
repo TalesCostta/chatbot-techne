@@ -28,6 +28,5 @@ function clickBtnChat(){
     var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
     document.getElementById(btnConversationId).click();
 }
-dataLayer = [{
-    'event': 'bot_conversation_started'
-  }];
+function dispararDataLayer() {
+    dataLayer.push({'event': 'bot_conversation_started'});} 
