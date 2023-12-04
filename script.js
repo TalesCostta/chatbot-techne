@@ -17,16 +17,32 @@ scriptHTML.type = 'text/javascript'
 document.body.appendChild(scriptHTML);
 
 window.onload = function () {
-    if (acessChat != null) {        
-        setTimeout(function(){
+    if (acessChat != null) {
+        setTimeout(function () {
             clickBtnChat()
-          }, 1000);
+        }, 1000);
+    }
+    var botoes = document.getElementsByClassName('button');
+
+    for (var i = 0; i < botoes.length; i++) {
+        botoes[i].addEventListener('click', function () {
+            // Faça algo quando o botão for clicado
+            dispararDataLayer();
+        });
     }
 }
 
-function clickBtnChat(){
+function clickBtnChat() {
     var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
     document.getElementById(btnConversationId).click();
 }
+
 function dispararDataLayer() {
-    dataLayer.push({'event': 'bot_conversation_started'});} 
+    alert('dispararDataLayer');
+    dataLayer.push({ 'event': 'bot_conversation_started' });
+}
+
+// Selecione todos os elementos com a classe 'nome-da-classe'
+
+
+
