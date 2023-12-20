@@ -1,48 +1,36 @@
-var url_string = window.location.href;
-var url = new URL(url_string);
-var acessChat = url.searchParams.get("acessChat");
+function chuva() {
+  let nuvem = document.querySelector('.nuvem');
+  let elementoDiv = document.createElement('div');
+  let left = Math.floor(Math.random() * 310);
+  let width = Math.random() * 5;
+  let height = Math.random() * 50;
+  let duracao = Math.random() * .5;
 
-if (acessChat != null) {
-    localStorage.setItem('chatbot-info-student', acessChat);
+  nuvem.appendChild(elementoDiv);
+  elementoDiv.classList.add('gota');
+  elementoDiv.style.left = left + 'px';
+  elementoDiv.style.width = .5 + width + 'px';
+  elementoDiv.style.height = .5 + height + 'px';
+  elementoDiv.style.animationDuration = 1 + duracao + 's';
+
+  setTimeout(function () {
+    nuvem.removeChild(elementoDiv);
+  }, 2000)
 }
 
-var paramChat;
-paramChat = localStorage.getItem('chatbot-info-student')
-let cronchatToken = 'AAGu0cX1U7HIuyWyB6aA1HhpD4l0c0psnTw';
-let hostURL = 'https://cronchatnovo.cronapp.io/get-chat?token=';
-let chatbotURL = `${hostURL}${cronchatToken}&extraparam=${paramChat}`;
-let scriptHTML = document.createElement("script");
-scriptHTML.src = chatbotURL;
-scriptHTML.type = 'text/javascript'
-document.body.appendChild(scriptHTML);
+setInterval(function () {
+  chuva();
+}, 40);
 
-window.onload = function () {
-    if (acessChat != null) {
-        setTimeout(function () {
-            clickBtnChat()
-        }, 1000);
-    }
-    var botoes = document.getElementsByClassName('button');
+function carregarScript() {
+  // Obtém o valor do campo de entrada
+  var url = document.getElementById('urlInput').value;
 
-    for (var i = 0; i < botoes.length; i++) {
-        botoes[i].addEventListener('click', function () {
-            // Faça algo quando o botão for clicado
-            dispararDataLayer();
-        });
-    }
+  // Criação dinâmica do elemento script
+  var scriptElement = document.createElement('script');
+  scriptElement.type = 'text/javascript';
+  scriptElement.src = url + 'img/bot.js';
+
+  // Adiciona o elemento script ao corpo do documento
+  document.body.appendChild(scriptElement);
 }
-
-function clickBtnChat() {
-    var btnConversationId = 'chatBtn_' + localStorage.getItem('conversationidbot');
-    document.getElementById(btnConversationId).click();
-}
-
-function dispararDataLayer() {
-    alert('dispararDataLayer');
-    dataLayer.push({ 'event': 'bot_conversation_started' });
-}
-
-// Selecione todos os elementos com a classe 'nome-da-classe'
-
-
-
